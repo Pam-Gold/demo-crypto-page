@@ -32,7 +32,7 @@ function App() {
 
   const blaqxRouter = createBrowserRouter(
     createRoutesFromElements(
-      <Route path="/" element={<Layout />}>
+      <Route path="/" element={<Layout />} errorElement={<Home/>}>
         <Route
           index
           element={
