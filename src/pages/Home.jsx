@@ -1,4 +1,20 @@
-import { Box, Flex, Heading, Img, Text, Grid, TableContainer, Table, Td, TableCaption, Thead, Tbody, Th, Tfoot, Tr } from "@chakra-ui/react";
+import {
+  Box,
+  Flex,
+  Heading,
+  Img,
+  Text,
+  Grid,
+  TableContainer,
+  Table,
+  Td,
+  TableCaption,
+  Thead,
+  Tbody,
+  Th,
+  Tfoot,
+  Tr,
+} from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { useStore } from "zustand";
 import axios from "axios";
@@ -8,57 +24,52 @@ import CrytoTableCharts from "../components/crypto-props/CryptoTableCharts";
 import Footer from "../components/Footer";
 
 const Home = () => {
- 
-
   const [data, setData] = useState([]);
   const [newsData, setNewsData] = useState([]);
   const [cryptoRatesData, setCryptoRatesData] = useState([]);
 
+  const fetchData = async () => {
+    try {
+      const res = await axios.get(
+        "https://api.coingecko.com/api/v3/search/trending"
+      );
+
+      setData(res.data.coins);
+    } catch (err) {
+      console.warn(err);
+    }
+  };
+  const fetchNewsData = async () => {
+    try {
+      const res = await axios.get(
+        `https://newsapi.org/v2/everything?q=crypto&pageSize=8&apiKey=05a168e910a246c493f80df4a4f7601d`
+      );
+
+      setNewsData(res.data.articles);
+    } catch (err) {
+      console.warn(err);
+    }
+  };
+
+  const fetchCryptoRates = async () => {
+    try {
+      const res = await axios.get(
+        "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=20&page=1&sparkline=false&locale=en"
+      );
+      setCryptoRatesData(res.data);
+    } catch (err) {
+      console.warn(err);
+    }
+  };
+
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await axios.get(
-          "https://api.coingecko.com/api/v3/search/trending"
-        );
-
-        setData(res.data.coins);
-      } catch (err) {
-        console.warn(err);
-      }
-    };
-    const fetchNewsData = async () => {
-      try {
-        const res = await axios.get(
-          `https://newsapi.org/v2/everything?q=crypto&pageSize=8&apiKey=05a168e910a246c493f80df4a4f7601d`
-        );
-
-        setNewsData(res.data.articles);
-      } catch (err) {
-        console.warn(err);
-      }
-    };
-
-    const fetchCryptoRates = async () => {
-      try {
-
-        const res = await axios.get("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=20&page=1&sparkline=false&locale=en");
-        setCryptoRatesData(res.data)
-
-      } catch (err) {
-        console.warn(err);
-      }
-    };
-
-
-
     fetchData();
-    fetchNewsData()
+    fetchNewsData();
     fetchCryptoRates();
   }, []);
   console.log(data);
   console.log(newsData);
   console.log(cryptoRatesData);
- 
 
   return (
     <Flex
@@ -128,44 +139,48 @@ const Home = () => {
           </Flex>
         </Flex>
       </Flex>
+      <Flex h="fit-content" w="100%" flexDir="column" rowGap="20px">
+        <Heading fontSize="1.6rem" textDecor="underline">
+          Latest News
+        </Heading>
 
-<Flex h="fit-content" w="100%" flexDir="column" rowGap="20px" >
-<Heading fontSize="1.6rem" textDecor="underline">
-  Latest News
-</Heading>
-
-
-      <Grid  gridTemplateColumns={{base:"1fr", sm:"1fr", md:"1fr 1fr", lg:"1fr 1fr 1fr", xl:"1fr 1fr 1fr 1fr"}} gridTemplateRows="min-content" gap="15px">
-
-
-
-  {newsData.map(news=><NewsBox {...news}/>)}
-
-      </Grid>
+        <Grid
+          gridTemplateColumns={{
+            base: "1fr",
+            sm: "1fr",
+            md: "1fr 1fr",
+            lg: "1fr 1fr 1fr",
+            xl: "1fr 1fr 1fr 1fr",
+          }}
+          gridTemplateRows="min-content"
+          gap="15px"
+        >
+          {newsData.map((news) => (
+            <NewsBox {...news} />
+          ))}
+        </Grid>
       </Flex>
-
       <Flex>
-    
         <TableContainer w="100%">
-  <Table variant='simple'>
-   
-    <Thead>
-      <Tr>
-        <Th isNumeric>#</Th>
-        <Th>Coin</Th>
-        <Th>Price</Th>
-        <Th >24h</Th>
-        <Th >24h Volume</Th>
-        <Th >Market Cap</Th>
-      </Tr>
-    </Thead>
-    <Tbody>
-      {cryptoRatesData.map((cryptoRate, indx) => indx < 20 && <CrytoTableCharts {...cryptoRate}/>)}
-
-      
-    </Tbody>
-  </Table>
-</TableContainer>
+          <Table variant="simple">
+            <Thead>
+              <Tr>
+                <Th isNumeric>#</Th>
+                <Th>Coin</Th>
+                <Th>Price</Th>
+                <Th>24h</Th>
+                <Th>24h Volume</Th>
+                <Th>Market Cap</Th>
+              </Tr>
+            </Thead>
+            <Tbody>
+              {cryptoRatesData.map(
+                (cryptoRate, indx) =>
+                  indx < 20 && <CrytoTableCharts {...cryptoRate} />
+              )}
+            </Tbody>
+          </Table>
+        </TableContainer>
       </Flex>
       {/* <Footer/> */}
     </Flex>
