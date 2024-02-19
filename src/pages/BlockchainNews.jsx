@@ -1,5 +1,5 @@
 import { Grid, Flex, Heading } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
+import { useLayoutEffect, useState } from "react";
 import axios from "axios";
 import NewsBox from "../components/news-props/NewsBox";
 const BlockchainNews = () => {
@@ -17,7 +17,7 @@ const BlockchainNews = () => {
     }
   };
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     fetchBlockchainNewsData();
   }, []);
   return (
