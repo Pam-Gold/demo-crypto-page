@@ -24,6 +24,8 @@ import CrytoTableCharts from "../components/crypto-props/CryptoTableCharts";
 import Footer from "../components/Footer";
 
 const Home = () => {
+
+
   const [data, setData] = useState([]);
   const [newsData, setNewsData] = useState([]);
   const [cryptoRatesData, setCryptoRatesData] = useState([]);
