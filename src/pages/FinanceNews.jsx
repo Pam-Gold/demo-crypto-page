@@ -2,6 +2,7 @@ import { Grid, Flex, Heading } from "@chakra-ui/react";
 import { useLayoutEffect, useState } from "react";
 import axios from "axios";
 import NewsBox from "../components/news-props/NewsBox";
+import Footer from "../components/Footer";
 const FinanceNews = () => {
   const [financeNewsData, setFinanceNewsData] = useState([]);
 
@@ -41,6 +42,7 @@ const FinanceNews = () => {
           <NewsBox {...news} />
         ))}
       </Grid>
+      <Footer/>
     </Flex>
   );
 };

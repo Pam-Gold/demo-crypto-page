@@ -20,6 +20,7 @@ import axios from "axios";
 import CrytoTableCharts from "../components/crypto-props/CryptoTableCharts";
 
 import { useEffect, useState } from "react";
+import Footer from "../components/Footer";
 
 const ExchangeRatesPage = () => {
   const [page, setPage] = useState(1);
@@ -83,6 +84,7 @@ const ExchangeRatesPage = () => {
         <Button onClick={() => setPage(4)}>4</Button>
         <Button onClick={() => setPage(5)}>5</Button>
       </Flex>
+      <Footer/>
     </Flex>
   );
 };

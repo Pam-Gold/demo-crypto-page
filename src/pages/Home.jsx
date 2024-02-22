@@ -75,13 +75,7 @@ const Home = () => {
 
   return (
     <Flex
-      p={{
-        base: "0px 15px",
-        sm: "0px 15px",
-        md: "0px 20px",
-        lg: "0px 25px",
-        xl: "0px 25px",
-      }}
+   
       rowGap="25px"
       mt="20px"
       flexDir="column"
@@ -104,6 +98,13 @@ const Home = () => {
           xl: "row",
         }}
         gap="15px"
+        p={{
+          base: "0px 15px",
+          sm: "0px 15px",
+          md: "0px 20px",
+          lg: "0px 25px",
+          xl: "0px 25px",
+        }}
       >
         <Flex
           h={{ base: "50%", sm: "50%", md: "50%", lg: "100%", xl: "100%" }}
@@ -141,7 +142,13 @@ const Home = () => {
           </Flex>
         </Flex>
       </Flex>
-      <Flex h="fit-content" w="100%" flexDir="column" rowGap="20px">
+      <Flex h="fit-content" w="100%" flexDir="column" rowGap="20px"    p={{
+        base: "0px 15px",
+        sm: "0px 15px",
+        md: "0px 20px",
+        lg: "0px 25px",
+        xl: "0px 25px",
+      }}>
         <Heading fontSize="1.6rem" textDecor="underline">
           Latest News
         </Heading>
@@ -184,7 +191,7 @@ const Home = () => {
           </Table>
         </TableContainer>
       </Flex>
-      {/* <Footer/> */}
+      <Footer/>
     </Flex>
   );
 };

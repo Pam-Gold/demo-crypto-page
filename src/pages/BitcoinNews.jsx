@@ -2,6 +2,7 @@ import { Grid, Flex, Heading } from "@chakra-ui/react";
 import { useLayoutEffect, useState } from "react";
 import axios from "axios";
 import NewsBox from "../components/news-props/NewsBox";
+import Footer from "../components/Footer";
 const BitcoinNews = () => {
   const [bitcoinNewsData, setBitcoinNewsData] = useState([]);
   const fetchBitcoinNewsData = async () => {
@@ -39,6 +40,7 @@ const BitcoinNews = () => {
           <NewsBox {...news} />
         ))}
       </Grid>
+      <Footer/>
     </Flex>
   );
 };

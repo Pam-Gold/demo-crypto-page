@@ -2,6 +2,7 @@ import { Box, Flex, Heading, Img, Text, Grid, TableContainer, Table, Td, TableCa
 import axios from "axios";
 import { useEffect, useState } from "react";  
 import MerchantTableCharts from "../components/crypto-props/MerchantTableCharts";
+import Footer from "../components/Footer";
 
 const InternationalMerchants = () => {
 
@@ -54,7 +55,7 @@ const InternationalMerchants = () => {
   </Table>
 </TableContainer>
 </Flex>
- 
+ <Footer/>
       </Flex>
   )
 }
