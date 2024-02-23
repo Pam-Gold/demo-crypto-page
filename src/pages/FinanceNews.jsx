@@ -8,11 +8,12 @@ const FinanceNews = () => {
 
   const fetchFinanceNewsData = async () => {
     try {
-      const res = await axios.get(
+      const res = await fetch(
         `https://newsapi.org/v2/everything?q=finance&pageSize=24&apiKey=05a168e910a246c493f80df4a4f7601d`
       );
 
-      setFinanceNewsData(res.data.articles);
+      const data = await res.json()
+      setFinanceNewsData(data.articles);
     } catch (err) {
       console.warn(err);
     }

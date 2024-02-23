@@ -46,9 +46,9 @@ const Footer = () => {
           <Text
             color="grey"
             width={{
-              base: "200px",
-              sm: "200px",
-              md: "300px",
+              base: "250px",
+              sm: "350px",
+              md: "400px",
               lg: "400px",
               xl: "400px",
             }}

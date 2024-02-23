@@ -8,11 +8,11 @@ const DefiNews = () => {
 
   const fetchDefiNewsData = async () => {
     try {
-      const res = await axios.get(
+      const res = await fetch(
         `https://newsapi.org/v2/everything?q=defi&pageSize=24&apiKey=05a168e910a246c493f80df4a4f7601d`
       );
-
-      setDefiNewsData(res.data.articles);
+      const data = await res.json()
+      setDefiNewsData(data.articles);
     } catch (err) {
       console.warn(err);
     }

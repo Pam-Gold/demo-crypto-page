@@ -8,11 +8,12 @@ const BlockchainNews = () => {
 
   const fetchBlockchainNewsData = async () => {
     try {
-      const res = await axios.get(
+      const res = await fetch(
         `https://newsapi.org/v2/everything?q=blockchain&pageSize=24&apiKey=05a168e910a246c493f80df4a4f7601d`
       );
 
-      setBlockchainNewsData(res.data.articles);
+      const data = await res.json()
+      setBlockchainNewsData(data.articles);
     } catch (err) {
       console.warn(err);
     }

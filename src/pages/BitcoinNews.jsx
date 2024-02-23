@@ -3,21 +3,26 @@ import { useLayoutEffect, useState } from "react";
 import axios from "axios";
 import NewsBox from "../components/news-props/NewsBox";
 import Footer from "../components/Footer";
+// import { useStore } from "zustand";
+
 const BitcoinNews = () => {
+  // const {data, fetchData} = useStore()
   const [bitcoinNewsData, setBitcoinNewsData] = useState([]);
-  const fetchBitcoinNewsData = async () => {
-    try {
-      const res = await axios.get(
+ const fetchBitcoinNewsData = async () => {
+   try {
+      const res = await fetch(
         `https://newsapi.org/v2/everything?q=bitcoin&pageSize=24&apiKey=05a168e910a246c493f80df4a4f7601d`
       );
 
-      setBitcoinNewsData(res.data.articles);
+      const data = await res.json()
+      setBitcoinNewsData(data.articles);
     } catch (err) {
       console.warn(err);
     }
   };
   useLayoutEffect(() => {
     fetchBitcoinNewsData();
+   
   }, []);
   return (
     <Flex h="fit-content" w="100%" flexDir="column" rowGap="20px">
