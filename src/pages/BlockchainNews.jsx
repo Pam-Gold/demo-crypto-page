@@ -9,7 +9,7 @@ const BlockchainNews = () => {
   const fetchBlockchainNewsData = async () => {
     try {
       const res = await fetch(
-        `https://newsapi.org/v2/everything?q=blockchain&pageSize=24&apiKey=05a168e910a246c493f80df4a4f7601d`
+        `https://gnews.io/api/v4/search?q=blockchain&lang=en&country=us&max=15&apikey=746e3c2efb7d4c4135084106cfd5b928`
       );
 
       const data = await res.json()

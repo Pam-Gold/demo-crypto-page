@@ -11,7 +11,7 @@ const BitcoinNews = () => {
  const fetchBitcoinNewsData = async () => {
    try {
       const res = await fetch(
-        `https://newsapi.org/v2/everything?q=bitcoin&pageSize=24&apiKey=05a168e910a246c493f80df4a4f7601d`
+        `https://gnews.io/api/v4/search?q=bitcoin&lang=en&country=us&max=15&apikey=746e3c2efb7d4c4135084106cfd5b928`
       );
 
       const data = await res.json()
@@ -24,6 +24,8 @@ const BitcoinNews = () => {
     fetchBitcoinNewsData();
    
   }, []);
+
+  console.log(bitcoinNewsData)
   return (
     <Flex h="fit-content" w="100%" flexDir="column" rowGap="20px">
       <Heading fontSize="1.6rem" textDecor="underline">

@@ -7,9 +7,11 @@ const store = (set) => ({
 data:[],
 fetchData: async (url) =>{
   try{
-const res = await axios.get(url);
+const response = await fetch(url);
 
-set({data:res.data})
+const results = response.json();
+
+set({data:results})
   }
   catch(err){
 console.warn(err)
