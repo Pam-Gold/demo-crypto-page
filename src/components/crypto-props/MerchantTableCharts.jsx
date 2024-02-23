@@ -1,29 +1,36 @@
-import { Flex, Grid, Heading, Text, Tr, Td, Img, Box, Portal } from "@chakra-ui/react";
-
-
+import {
+  Flex,
+  Grid,
+  Heading,
+  Text,
+  Tr,
+  Td,
+  Img,
+  Box,
+  Portal,
+} from "@chakra-ui/react";
 
 const MerchantTableCharts = (props) => {
-  
-  
-
-  return(
+  return (
     <Tr>
-    <Td isNumeric>{props.trust_score_rank}</Td>
-    <Td display="flex" alignItems="center">
-      <Img src={props.image} h="30px" width="30px" mr="8px" />
-      {props.name}
-    </Td>
-    <Td >
-      <Box textAlign="center" w="70px"  bg="green.200" color="green" p="5px">
-{props.trust_score}/10
-      </Box></Td>
-    {/* <Td >${props.current_price}</Td> */}
-    {/* <Td >{roundedUpPercentage}% </Td> */}
-    <Td >${props.trade_volume_24h_btc}</Td>
-  
-  </Tr>
-  )
-}
+      <Td isNumeric>{props.trust_score_rank}</Td>
+      <Td>
+        <Flex alignItems="center" columnGap="8px">
+          <Img src={props.image} h="25px" width="25px" />
+          <Text>{props.name}</Text>
+        </Flex>
+      </Td>
+      <Td>
+        <Flex justifyContent="center" align="center" w="70px" bg="green.200" color="green" p="5px">
+          <Text >{props.trust_score}/10</Text>
+        </Flex>
+      </Td>
+      {/* <Td >${props.current_price}</Td> */}
+      {/* <Td >{roundedUpPercentage}% </Td> */}
+      <Td>${props.trade_volume_24h_btc}</Td>
+    </Tr>
+  );
+};
 
 export default MerchantTableCharts;
 

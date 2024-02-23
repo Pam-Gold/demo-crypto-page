@@ -1,3 +1,4 @@
+
 import {
   Box,
   Flex,
@@ -44,7 +45,7 @@ const Home = () => {
   const fetchNewsData = async () => {
     try {
       const res = await axios.get(
-        `https://newsapi.org/v2/everything?q=crypto&pageSize=8&apiKey=05a168e910a246c493f80df4a4f7601d`
+        `https://gnews.io/api/v4/search?q=crypto&lang=en&country=us&max=8&apikey=746e3c2efb7d4c4135084106cfd5b928`
       );
 
       setNewsData(res.data.articles);
@@ -77,8 +78,10 @@ const Home = () => {
     <Flex
    
       rowGap="25px"
-      mt="20px"
+      pt="20px"
       flexDir="column"
+      bg="black"
+      color="#fff"
     >
       {" "}
       <Flex
@@ -172,14 +175,14 @@ const Home = () => {
       <Flex>
         <TableContainer w="100%">
           <Table variant="simple">
-            <Thead>
-              <Tr>
-                <Th isNumeric>#</Th>
-                <Th>Coin</Th>
-                <Th>Price</Th>
-                <Th>24h</Th>
-                <Th>24h Volume</Th>
-                <Th>Market Cap</Th>
+            <Thead >
+              <Tr >
+                <Th isNumeric color="grey">#</Th>
+                <Th color="grey">Coin</Th>
+                <Th color="grey">Price</Th>
+                <Th color="grey">24h</Th>
+                <Th color="grey">24h Volume</Th>
+                <Th color="grey">Market Cap</Th>
               </Tr>
             </Thead>
             <Tbody>

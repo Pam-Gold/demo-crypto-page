@@ -24,6 +24,8 @@ const Navbar = () => {
         justify="space-between"
         align="center"
         p="5px 8px "
+        bg="black"
+        color="#fff"
       >
         <Box h="40px" w="40px">
           <Img

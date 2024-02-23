@@ -24,7 +24,7 @@ const InternationalMerchants = () => {
   }, [])
 
   return(
-    <Flex h="fit-content" w="100%" flexDir="column">
+    <Flex h="fit-content" w="100%" flexDir="column" bg="black" color="#fff">
     
     <Flex flexDir="column">
       <Flex flexDir="column" mt="30px" rowGap="20px">
@@ -35,7 +35,7 @@ const InternationalMerchants = () => {
         <Text mb="15px">The global cryptocurrency market cap today is $2.06 Trillion, a <i className="fa-solid fa-caret-up" style={{color:"green"}}></i> 0.7% change in the last 24 hours.</Text>
       </Flex>
 
-          <TableContainer w="100%">
+          <TableContainer  w="100%" p="8px">
   <Table variant='simple'>
    
     <Thead>
@@ -47,7 +47,7 @@ const InternationalMerchants = () => {
       
       </Tr>
     </Thead>
-    <Tbody>
+    <Tbody >
       
 {internationalMerchantRatesData.map(internationalRates =><MerchantTableCharts {...internationalRates}/>)}
       

@@ -8,9 +8,15 @@ const CrytoTableCharts = (props) => {
   return (
     <Tr>
       <Td isNumeric>{props.market_cap_rank}</Td>
-      <Td display="flex" alignItems="center">
-        <Img src={props.image} h="30px" width="30px" mr="8px" />
+      <Td >
+        <Flex  alignItems="center" columnGap="8px">
+        <Img src={props.image} h="30px" width="30px"  />
+        <Text>
+
         {props.name}
+        </Text>
+        </Flex>
+        
       </Td>
       <Td >${props.current_price}</Td>
       <Td >{roundedUpPercentage}% </Td>

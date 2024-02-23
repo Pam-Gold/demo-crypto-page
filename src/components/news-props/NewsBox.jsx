@@ -2,7 +2,7 @@ import { Flex, Img, Link, Text } from "@chakra-ui/react";
 
 const NewsBox = (props) => {
   return(
-<Flex h="500px" w="100%" flexDir="column" rowGap="15px" p="5px" pos="relative">
+<Flex h="550px" w="100%" flexDir="column" rowGap="15px" p="5px" pos="relative">
   <Flex h="250px" w="100%" pos="relative">
     <Img src={props.image} h="250px" w="100%" pos="absolute" top="0px" left="0px" right="0px" bottom="0px" borderRadius="10px" />
     <Flex h="50px" w="50px" pos='absolute' top="10px" left="10px">

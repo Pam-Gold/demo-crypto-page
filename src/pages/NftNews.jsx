@@ -22,7 +22,7 @@ const NftNews = () => {
     fetchNftNewsData();
   }, []);
   return (
-    <Flex h="fit-content" w="100%" flexDir="column" rowGap="20px">
+    <Flex h="fit-content" w="100%" flexDir="column" rowGap="20px" bg="black" color="#fff">
       <Heading fontSize="1.6rem" textDecor="underline">
         Nft News
       </Heading>

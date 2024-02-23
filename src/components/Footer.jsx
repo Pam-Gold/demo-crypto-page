@@ -22,7 +22,7 @@ const Footer = () => {
       }}
       w="100%"
       flexDir="column"
-      bg="black"
+      bg="#111"
       rowGap="20px"
       p="5px"
       justifyContent="space-between"

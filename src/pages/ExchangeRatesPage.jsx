@@ -39,15 +39,19 @@ const ExchangeRatesPage = () => {
 
     fetchCryptoRates();
   }, [page]);
+
+  const paginationStyles = {
+    borderRadius:"50%",
+    "_active":{bg:"grey"},
+    "_hover":{bg:"light-grey"}
+  }
   return (
-    <Flex h="fit-content" w="100%" flexDir="column" rowGap="20px" p="5px 0px">
-      <Flex flexDir="column" >
+    <Flex h="fit-content" w="100%" flexDir="column" rowGap="20px" p="5px 0px" bg="black" color="#fff">
+      <Flex flexDir="column" p="0px 8px">
         <Flex flexDir="column" mt="30px" rowGap="20px">
-          <Heading>Cryptocurrency Prices by Market Cap</Heading>
-          <Text mb="15px">
-            The global cryptocurrency market cap today is $2.06 Trillion, a{" "}
-            <i className="fa-solid fa-caret-up" style={{ color: "green" }}></i>{" "}
-            0.7% change in the last 24 hours.
+          <Heading>Exhange Rates of Popular CryptoCurrencies.</Heading>
+          <Text mb="15px" color="grey">
+            This are the rates and prices of the trending and most profitable coins
           </Text>
         </Flex>
 
@@ -77,12 +81,14 @@ const ExchangeRatesPage = () => {
         alignItems="center"
         columnGap="10px"
         fontSize="1.4rem"
+        
+   
       >
-        <Button onClick={() => setPage(1)}>1</Button>
-        <Button onClick={() => setPage(2)}>2</Button>
-        <Button onClick={() => setPage(3)}>3</Button>
-        <Button onClick={() => setPage(4)}>4</Button>
-        <Button onClick={() => setPage(5)}>5</Button>
+        <Button sx={paginationStyles} onClick={() => setPage(1)}>1</Button>
+        <Button sx={paginationStyles} onClick={() => setPage(2)}>2</Button>
+        <Button sx={paginationStyles} onClick={() => setPage(3)}>3</Button>
+        <Button sx={paginationStyles} onClick={() => setPage(4)}>4</Button>
+        <Button sx={paginationStyles} onClick={() => setPage(5)}>5</Button>
       </Flex>
       <Footer/>
     </Flex>
