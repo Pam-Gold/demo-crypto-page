@@ -23,8 +23,8 @@ const DefiNews = () => {
   }, []);
   return (
     <Flex h="fit-content" w="100%" flexDir="column" rowGap="20px" bg="black" color="#fff">
-      <Heading fontSize="1.6rem" textDecor="underline">
-        Defi News
+      <Heading fontSize="1.6rem" p="0px 8px" color="lightgrey">
+      💵 Defi News
       </Heading>
 
       <Grid
@@ -37,6 +37,7 @@ const DefiNews = () => {
         }}
         gridTemplateRows="min-content"
         gap="15px"
+        p="0px 8px"
       >
         {defiNewsData.map((news) => (
           <NewsBox {...news} />

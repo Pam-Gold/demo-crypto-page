@@ -11,10 +11,10 @@ const NewsBox = (props) => {
   </Flex>
   <Flex flexDir="column" rowGap="15px"  mt="5px">
     <Text fontSize="1.4rem" fontWeight="bold"><Link href={props.url}>{props.title}</Link></Text>
-    <Text pos="absolute" bottom="80px">{props.source.name}</Text>
+    <Text pos="absolute" bottom="80px" color="grey">{props.source.name}</Text>
     <Flex alignContent="center" columnGap="10px" mt="15px" pos="absolute" bottom="30px">
-      <Flex><Link><i className="fa-solid fa-message"></i></Link></Flex>
-      <Flex><i className="fa-solid fa-share"></i></Flex>
+      <Flex fontSize="1rem"><Link><i className="fa-solid fa-message"></i></Link></Flex>
+      <Flex fontSize="1rem"><i className="fa-solid fa-share"></i></Flex>
     </Flex>
   </Flex>
 </Flex>

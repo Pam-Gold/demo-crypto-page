@@ -136,9 +136,7 @@ const Navbar = () => {
                 <ListItem>
                   <Link to="defi-news" onClick={renderNewsDropDown}>DeFi News</Link>
                 </ListItem>
-                <ListItem>
-                  <Link to="blockchain-news" onClick={renderNewsDropDown}>Blockchain News</Link>
-                </ListItem>
+             
                 <ListItem>
                   <Link to="finance-news" onClick={renderNewsDropDown}>Finance News</Link>
                 </ListItem>

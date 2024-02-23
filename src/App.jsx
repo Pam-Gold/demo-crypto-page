@@ -18,21 +18,20 @@ import React from "react";
 
 const Home = React.lazy(() => import("./pages/Home"));
 const ExchangeRatesPage = React.lazy(() => import("./pages/ExchangeRatesPage"));
-const InternationalMerchants = React.lazy(() => import("./pages/InternationalMerchants"));
+const InternationalMerchants = React.lazy(() =>
+  import("./pages/InternationalMerchants")
+);
 
 const BitcoinNews = React.lazy(() => import("./pages/BitcoinNews"));
 const NftNews = React.lazy(() => import("./pages/NftNews"));
 const DefiNews = React.lazy(() => import("./pages/DefiNews"));
-const BlockchainNews = React.lazy(() => import("./pages/BlockchainNews"));
+
 const FinanceNews = React.lazy(() => import("./pages/FinanceNews"));
 
-
 function App() {
-
-
   const blaqxRouter = createBrowserRouter(
     createRoutesFromElements(
-      <Route path="/" element={<Layout />} errorElement={<Home/>}>
+      <Route path="/" element={<Layout />} errorElement={<Home />}>
         <Route
           index
           element={
@@ -42,49 +41,59 @@ function App() {
           }
         />
 
-<Route path='exchange-rates' element={
-  <React.Suspense fallback="Loading...">
-    <ExchangeRatesPage/>
-  </React.Suspense>
-}/>
+        <Route
+          path="exchange-rates"
+          element={
+            <React.Suspense fallback="Loading...">
+              <ExchangeRatesPage />
+            </React.Suspense>
+          }
+        />
 
-<Route path='international-merchants' element={
-  <React.Suspense fallback="Loading...">
-    <InternationalMerchants/>
-  </React.Suspense>
-}/>
+        <Route
+          path="international-merchants"
+          element={
+            <React.Suspense fallback="Loading...">
+              <InternationalMerchants />
+            </React.Suspense>
+          }
+        />
 
-<Route path='bitcoin-news' element={
-  <React.Suspense fallback="Loading...">
-    <BitcoinNews/>
-  </React.Suspense>
-}/>
+        <Route
+          path="bitcoin-news"
+          element={
+            <React.Suspense fallback="Loading...">
+              <BitcoinNews />
+            </React.Suspense>
+          }
+        />
 
-<Route path='nft-news' element={
-  <React.Suspense fallback="Loading...">
-    <NftNews/>
-  </React.Suspense>
-}/>
+        <Route
+          path="nft-news"
+          element={
+            <React.Suspense fallback="Loading...">
+              <NftNews />
+            </React.Suspense>
+          }
+        />
 
-<Route path='defi-news' element={
-  <React.Suspense fallback="Loading...">
-    <DefiNews/>
-  </React.Suspense>
-}/>
+        <Route
+          path="defi-news"
+          element={
+            <React.Suspense fallback="Loading...">
+              <DefiNews />
+            </React.Suspense>
+          }
+        />
 
-<Route path='blockchain-news' element={
-  <React.Suspense fallback="Loading...">
-    <BlockchainNews/>
-  </React.Suspense>
-}/>
-
-<Route path='finance-news' element={
-  <React.Suspense fallback="Loading...">
-    <FinanceNews/>
-  </React.Suspense>
-}/>
-
-       
+        <Route
+          path="finance-news"
+          element={
+            <React.Suspense fallback="Loading...">
+              <FinanceNews />
+            </React.Suspense>
+          }
+        />
       </Route>
     )
   );

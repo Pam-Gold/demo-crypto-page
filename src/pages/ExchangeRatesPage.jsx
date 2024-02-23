@@ -49,7 +49,7 @@ const ExchangeRatesPage = () => {
     <Flex h="fit-content" w="100%" flexDir="column" rowGap="20px" p="5px 0px" bg="black" color="#fff">
       <Flex flexDir="column" p="0px 8px">
         <Flex flexDir="column" mt="30px" rowGap="20px">
-          <Heading>Exhange Rates of Popular CryptoCurrencies.</Heading>
+          <Heading>📈 Exhange Rates of Popular CryptoCurrencies.</Heading>
           <Text mb="15px" color="grey">
             This are the rates and prices of the trending and most profitable coins
           </Text>

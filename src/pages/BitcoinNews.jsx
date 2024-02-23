@@ -28,8 +28,8 @@ const BitcoinNews = () => {
   console.log(bitcoinNewsData)
   return (
     <Flex h="fit-content" w="100%" flexDir="column" rowGap="20px" bg="black" color="#fff"> 
-      <Heading fontSize="1.6rem" textDecor="underline">
-        Bitcoin News
+      <Heading fontSize="1.6rem" p="0px 8px" color="lightgrey">
+      ₿ Bitcoin News
       </Heading>
 
       <Grid
@@ -42,6 +42,7 @@ const BitcoinNews = () => {
         }}
         gridTemplateRows="min-content"
         gap="15px"
+        p="0px 8px"
       >
         {bitcoinNewsData.map((news) => (
           <NewsBox {...news} />

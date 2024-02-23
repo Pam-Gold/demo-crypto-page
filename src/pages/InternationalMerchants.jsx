@@ -26,16 +26,16 @@ const InternationalMerchants = () => {
   return(
     <Flex h="fit-content" w="100%" flexDir="column" bg="black" color="#fff">
     
-    <Flex flexDir="column">
+    <Flex flexDir="column" p="0px 8px">
       <Flex flexDir="column" mt="30px" rowGap="20px">
         <Heading>
           
-        Cryptocurrency Prices by Market Cap
+        🏦 Top International Trading Companies and their ratings 
         </Heading>
-        <Text mb="15px">The global cryptocurrency market cap today is $2.06 Trillion, a <i className="fa-solid fa-caret-up" style={{color:"green"}}></i> 0.7% change in the last 24 hours.</Text>
+        <Text mb="15px" color="grey">This are list of the top Crypto Trading Companies with their trust score, exchange prices and daily volumes</Text>
       </Flex>
 
-          <TableContainer  w="100%" p="8px">
+          <TableContainer  w="100%" >
   <Table variant='simple'>
    
     <Thead>
