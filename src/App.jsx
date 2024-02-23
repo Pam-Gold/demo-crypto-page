@@ -15,6 +15,7 @@ import Layout from "./layout/Layout";
 // import BlockchainNews from './pages/BlockchainNews'
 // import FinanceNews from './pages/FinanceNews'
 import React from "react";
+import NoPage from "./pages/NoPage";
 
 const Home = React.lazy(() => import("./pages/Home"));
 const ExchangeRatesPage = React.lazy(() => import("./pages/ExchangeRatesPage"));
@@ -31,7 +32,7 @@ const FinanceNews = React.lazy(() => import("./pages/FinanceNews"));
 function App() {
   const blaqxRouter = createBrowserRouter(
     createRoutesFromElements(
-      <Route path="/" element={<Layout />} errorElement={<Home />}>
+      <Route path="/" element={<Layout />} errorElement={<NoPage />}>
         <Route
           index
           element={
