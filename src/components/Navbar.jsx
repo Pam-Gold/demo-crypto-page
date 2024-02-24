@@ -1,8 +1,9 @@
-import { Box, Flex, Img, List, ListItem, Text } from "@chakra-ui/react";
-import { useState } from "react";
+import { Box, Flex, Img, List, ListItem, Text, Menu, MenuButton, MenuItem, MenuIcon, MenuList, Heading } from "@chakra-ui/react";
+
+import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import useToggle from "../hooks/useToggle";
-import logo from '../assets/blaqx-logo.png'
+import logo from "../assets/blaqx-logo.png";
 const Navbar = () => {
   const [menu, setMenu] = useState(false);
 
@@ -15,7 +16,13 @@ const Navbar = () => {
 
   const [newsDropDown, renderNewsDropDown] = useToggle();
   const [exchangeDropDown, renderExchangeDropDown] = useToggle();
+ 
 
+
+  const menuTitleStyles = {
+    fontSize:"1rem",
+    bg:"#000"
+  }
   return (
     <>
       <Flex
@@ -26,13 +33,10 @@ const Navbar = () => {
         p="5px 8px "
         bg="black"
         color="#fff"
+       
       >
         <Box h="40px" w="40px">
-          <Img
-            h="100%"
-            w="100%"
-            src={logo}
-          />
+          <Img h="100%" w="100%" src={logo} />
         </Box>
         {/*  */}
 
@@ -46,152 +50,68 @@ const Navbar = () => {
             lg: "1.6rem",
             xl: "1.6rem",
           }}
-          fontWeight="bold"
+       
           pos="relative"
         >
-          <ListItem>
-            <Link to="/">Home</Link>
+          <ListItem display="flex" alignItems="center">
+            <Link to="/"  ><Heading  fontSize={{
+            base: "1.1rem",
+            sm: "1.2rem",
+            md: "1.4rem",
+            lg: "1.5rem",
+            xl: "1.5rem",
+
+          }} fontWeight="400">Home</Heading></Link>
           </ListItem>
           {/* <ListItem><Link to="exchange">Exchange</Link></ListItem>
            */}
 
-          <Flex flexDirection="column">
-            <Text cursor="pointer" onClick={renderExchangeDropDown}>
-              Exchanges
-            </Text>
-
-            {exchangeDropDown && (
-              <List
-                top="50px"
-                h="200px"
-                w={{
-                  base: "200px",
-                  sm: "250px",
-                  md: "250px",
-                  lg: "250px",
-                  xl: "250px",
-                }}
-                bg="#111"
-                color="#fff"
-                p="10px"
-                borderRadius="8px"
-                pos="absolute"
-                fontSize="1rem"
-                display="flex"
-                flexDir="column"
-                justifyContent="space-between"
-                zIndex="99"
-              >
-                <ListItem>
-                  <Link to="exchange-rates" onClick={renderExchangeDropDown}>Exchange Rates</Link>
-                </ListItem>
-                <ListItem>
-                  <Link onClick={renderExchangeDropDown}> Nft Rates</Link>
-                </ListItem>
-                <ListItem>
-                  <Link to="international-merchants" onClick={renderExchangeDropDown}>International Merchants</Link>
-                </ListItem>
-                <ListItem>
-                  <Link onClick={renderExchangeDropDown}>Local Merchants</Link>
-                </ListItem>
-            
-              </List>
-            )}
+          <Flex >
+          <Menu isLazy bg="#111">
+  <MenuButton fontSize={{base:"1.1rem", sm:"1.2rem", md:"1.4rem", lg:"1.5rem", xl:"1.5rem"}}>Exchanges</MenuButton>
+  <MenuList color="white" bg="black">
+    {/* MenuItems are not rendered unless Menu is open */}
+    <MenuItem sx={menuTitleStyles}><Link to="exchange-rates">Exchange Rates</Link></MenuItem>
+    <MenuItem sx={menuTitleStyles}><Link to="international-merchants">International Merchants</Link></MenuItem>
+    <MenuItem sx={menuTitleStyles}><Link to="">Local Merchants</Link></MenuItem>
+  
+  </MenuList>
+</Menu>
           </Flex>
 
-          <Flex flexDirection="column">
-            <Text cursor="pointer" onClick={renderNewsDropDown}>
-              News
-            </Text>
+          <Flex >
+          <Menu isLazy bg="#111">
+  <MenuButton fontSize={{base:"1.1rem", sm:"1.2rem", md:"1.4rem", lg:"1.5rem", xl:"1.5rem"}}>News</MenuButton>
+  <MenuList color="white" bg="black">
+    {/* MenuItems are not rendered unless Menu is open */}
+    <MenuItem sx={menuTitleStyles}><Link to="bitcoin-news">Bitcoin News</Link></MenuItem>
+    <MenuItem sx={menuTitleStyles}><Link to="nft-news">Nft News</Link></MenuItem>
+    <MenuItem sx={menuTitleStyles}><Link to="defi-news">Defi News</Link></MenuItem>
+    <MenuItem sx={menuTitleStyles}><Link to="finance-news">Finance News</Link></MenuItem>
+  </MenuList>
+</Menu>
 
-            {newsDropDown && (
-              <List
-                top="50px"
-                h="200px"
-                w={{
-                  base: "150px",
-                  sm: "150px",
-                  md: "150px",
-                  lg: "200px",
-                  xl: "200px",
-                }}
-                bg="#111"
-                color="#fff"
-                p="10px"
-                borderRadius="8px"
-                pos="absolute"
-                fontSize="1rem"
-                display="flex"
-                flexDir="column"
-                justifyContent="space-between"
-                zIndex="99"
-                right={{base:"5px", sm:"5px", md:"0px"}}
-              >
-                <ListItem>
-                  <Link to="bitcoin-news" onClick={renderNewsDropDown}>Bitcoin News</Link>
-                </ListItem>
-                <ListItem>
-                  <Link to="nft-news" onClick={renderNewsDropDown}> Nft News</Link>
-                </ListItem>
-                <ListItem>
-                  <Link to="defi-news" onClick={renderNewsDropDown}>DeFi News</Link>
-                </ListItem>
-             
-                <ListItem>
-                  <Link to="finance-news" onClick={renderNewsDropDown}>Finance News</Link>
-                </ListItem>
-              </List>
-            )}
           </Flex>
         </List>
 
-        {/* <List display={{base:"flex", sm:"flex", md:"none", lg:"none", xl:"none"}} alignItems="center" columnGap="50px" fontSize="1.35rem" fontWeight="bold">
-<ListItem><Link><i className="fa-solid fa-house"></i></Link></ListItem>
-  <ListItem><Link><i className="fa-solid fa-chart-simple"></i></Link></ListItem>
-  <ListItem><Link><i className="fa-solid fa-newspaper"></i></Link></ListItem>
-</List> */}
+        <Flex>
+    <Menu isLazy bg="#111">
+  <MenuButton fontSize="1.6rem"><i className="fa-solid fa-bars"></i></MenuButton>
+  <MenuList color="white" bg="black">
+    {/* MenuItems are not rendered unless Menu is open */}
+    <MenuItem sx={menuTitleStyles}>Link1</MenuItem>
+    <MenuItem sx={menuTitleStyles}>Link2</MenuItem>
+    <MenuItem sx={menuTitleStyles}>Link3</MenuItem>
+  </MenuList>
+</Menu>
+   </Flex>
+</Flex>
+   
+  
+  
 
-        <Flex
-          h="40px"
-          w="40px"
-          justify="center"
-          align="center"
-          fontSize="1.7rem"
-        >
-          {!menu && <i className="fa-solid fa-bars" onClick={openMenu}></i>}
-          {menu && <i className="fa-solid fa-close" onClick={closeMenu}></i>}
-        </Flex>
-      </Flex>
+ 
 
-      {/* <List h="50px" w="100%" display={{base:"flex", sm:"flex", md:"none", lg:"none", xl:"none"}} pos="fixed" bottom="0px" fontSize="1.6rem" justifyContent="space-between" p="0px 35px">
-  <ListItem><Link><i className="fa-solid fa-house"></i></Link></ListItem>
-  <ListItem><Link><i className="fa-solid fa-chart-simple"></i></Link></ListItem>
-  <ListItem><Link><i className="fa-solid fa-newspaper"></i></Link></ListItem>
-</List> */}
-
-      {menu && (
-        <Flex
-          pos="absolute"
-          right="0px"
-          h="200px"
-          w="200px"
-          bg="#111"
-          color="#fff"
-          zIndex="99"
-        >
-          <List
-            display="flex"
-            flexDir="column"
-            justifyContent="space-between"
-            p="8px"
-          >
-            <ListItem>Link1</ListItem>
-            <ListItem>Link2</ListItem>
-            <ListItem>Link3</ListItem>
-            <ListItem>Link4</ListItem>
-          </List>
-        </Flex>
-      )}
     </>
   );
 };

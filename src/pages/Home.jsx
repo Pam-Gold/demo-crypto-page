@@ -184,7 +184,7 @@ const Home = () => {
           ))}
         </Grid>
       </Flex>
-      <Flex flexDir="column" rowGap="15px">
+      <Flex flexDir="column" rowGap="15px" p="0px 8px">
 <Heading fontSize="1.4rem" color="lightgray">Top CryptoCurrencies</Heading>
 
         <TableContainer w="100%">
