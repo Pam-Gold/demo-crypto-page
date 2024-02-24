@@ -73,7 +73,7 @@ const Footer = () => {
           </Text>
           <ListItem>About Us</ListItem>
           <ListItem>Careers</ListItem>
-          <ListItem>Company BLog</ListItem>
+          <ListItem>Company Blog</ListItem>
           <ListItem>Terms of Service</ListItem>
         </List>
         <List color="grey">
@@ -86,8 +86,8 @@ const Footer = () => {
           <ListItem>Youtube</ListItem>
         </List>
       </Flex>
-      <Flex h="30%" w="100%">
-        <Text color="grey">&copy; 2024 blaqx-crypto All Rights Reserved.</Text>
+      <Flex h="30%" w="100%" justify={{base:"center", sm:"center", md:"center", lg:"flex-start", xl:"flex-start"}}>
+        <Text color="#333">&copy; 2024 blaqx-crypto All Rights Reserved.</Text>
       </Flex>
     </Flex>
   );
