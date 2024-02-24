@@ -1,14 +1,8 @@
-import {
-  Box,
-  Flex,
-  Heading,
-  Text,
-  Img,
-  List,
-  ListItem,
-  Spacer,
-} from "@chakra-ui/react";
+// Footer Component that is rendered in most pages
+import { Flex, Heading, Text, List, ListItem } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
+
+// TODO To add actual social links
 
 const Footer = () => {
   return (
@@ -42,6 +36,7 @@ const Footer = () => {
         gap="15px"
       >
         <Flex flexDir="column" rowGap="15px">
+          {/*//TODO To add actual logo image          */}
           <Heading color="#fff">Logo</Heading>
           <Text
             color="grey"
@@ -86,7 +81,17 @@ const Footer = () => {
           <ListItem>Youtube</ListItem>
         </List>
       </Flex>
-      <Flex h="30%" w="100%" justify={{base:"center", sm:"center", md:"center", lg:"flex-start", xl:"flex-start"}}>
+      <Flex
+        h="30%"
+        w="100%"
+        justify={{
+          base: "center",
+          sm: "center",
+          md: "center",
+          lg: "flex-start",
+          xl: "flex-start",
+        }}
+      >
         <Text color="#333">&copy; 2024 blaqx-crypto All Rights Reserved.</Text>
       </Flex>
     </Flex>

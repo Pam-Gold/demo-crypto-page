@@ -1,5 +1,4 @@
 import {
-  Box,
   Flex,
   Heading,
   Img,
@@ -7,16 +6,13 @@ import {
   Grid,
   TableContainer,
   Table,
-  Td,
-  TableCaption,
   Thead,
   Tbody,
   Th,
-  Tfoot,
   Tr,
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
-import { useStore } from "zustand";
+
 import axios from "axios";
 import SimpleTableChart from "../components/crypto-props/SimpleTableChart";
 import NewsBox from "../components/news-props/NewsBox";
@@ -28,7 +24,7 @@ const Home = () => {
   const [data, setData] = useState([]);
   const [newsData, setNewsData] = useState([]);
   const [cryptoRatesData, setCryptoRatesData] = useState([]);
-
+  // Async Function  to retrieve trending cryptocurrency charts from CoinGecko
   const fetchData = async () => {
     try {
       const res = await axios.get(
@@ -40,6 +36,9 @@ const Home = () => {
       console.warn(err);
     }
   };
+  //
+
+  // Async Function  to retrieve Crypto related news from Gnews io
   const fetchNewsData = async () => {
     try {
       const res = await axios.get(
@@ -51,7 +50,9 @@ const Home = () => {
       console.warn(err);
     }
   };
+  //
 
+  // Async Function  to retrieve the top 20 cryptocurrency coins from CoinGecko
   const fetchCryptoRates = async () => {
     try {
       const res = await axios.get(
@@ -62,7 +63,7 @@ const Home = () => {
       console.warn(err);
     }
   };
-
+// Use Effect Function to call the Async Functions handling Api requests
   useEffect(() => {
     fetchData();
     fetchNewsData();
@@ -106,16 +107,16 @@ const Home = () => {
           border="2px solid lightgrey"
           borderRadius="15px"
         >
+          {/* Embeded Video that autoplays when the user opens the website */}
           <iframe
             width="100%"
             height="100%"
-            style={{borderRadius:"10px"}}
+            style={{ borderRadius: "12px" }}
             src="https://www.youtube.com/embed/a-6ivXJ6H90?si=AAy2g5E61aM8C2-k&autoplay=1"
             title="YouTube video player"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowfullscreen
-            
           ></iframe>
         </Flex>
         <Flex
@@ -138,13 +139,12 @@ const Home = () => {
             </Flex>
             <Text cursor="pointer">
               <Link to="exchange-rates">
-              More <i className="fa-solid fa-chevron-right"></i>
+                More <i className="fa-solid fa-chevron-right"></i>
               </Link>
-              
             </Text>
           </Flex>
           <Flex h="fit-content" w="100%" flexDir="column" rowGap="10px">
-            {/*  */}
+               {/* Mapping & conditonally rendering Trending Coins from the resolved api request(Coin Gecko Api)*/}
             {data.map(
               (coin, indx) => indx < 5 && <SimpleTableChart {...coin} />
             )}
@@ -179,14 +179,17 @@ const Home = () => {
           gridTemplateRows="min-content"
           gap="15px"
         >
+           {/* Mapping & conditonally rendering Crypto News from the resolved api request(Gnews Api)*/}
           {newsData.map((news) => (
             <NewsBox {...news} />
           ))}
         </Grid>
       </Flex>
       <Flex flexDir="column" rowGap="15px" p="0px 8px">
-<Heading fontSize="1.4rem" color="lightgray">Top CryptoCurrencies</Heading>
-
+        <Heading fontSize="1.4rem" color="lightgray">
+          Top CryptoCurrencies
+        </Heading>
+    {/* Table Structure For CryptoCurrency: coins, prices, daily volumes & market cap*/}
         <TableContainer w="100%">
           <Table variant="simple">
             <Thead>
@@ -202,6 +205,7 @@ const Home = () => {
               </Tr>
             </Thead>
             <Tbody>
+              {/* Mapping & conditonally rendering Crypto currency rates from the resolved api request (CoinGecko Api)*/}
               {cryptoRatesData.map(
                 (cryptoRate, indx) =>
                   indx < 20 && <CrytoTableCharts {...cryptoRate} />
@@ -216,15 +220,3 @@ const Home = () => {
 };
 
 export default Home;
-
-{
-  /* <Flex >
-  <Flex flexDir="column" justify="center" h="00px" w="100%">
-    <Heading textAlign="center" mt="20px" fontSize={{base:"1.8rem", sm:"1.8rem", md:"2rem", lg:"3rem", xl:"3.2rem" }}>
-   Explore The Future Of Finance, One Block At a Time By Unlocking The Secrets Of BlockChain
-    </Heading>
-    {/* <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis autem, ab magnam distinctio nesciunt vel adipisci! Accusamus, doloremque?</Text> */
-}
-// </Flex>
-
-// </Flex> */}

@@ -1,27 +1,23 @@
+//  Chart Component that is rendered across the website as an Item in the Table Chart Components
 import { Flex, Grid, Heading, Text, Tr, Td, Img } from "@chakra-ui/react";
 
 const CrytoTableCharts = (props) => {
+  const percentage = props.price_change_percentage_24h;
 
-  const percentage = props.price_change_percentage_24h
-
-  const roundedUpPercentage = percentage.toFixed(2)
+  const roundedUpPercentage = percentage.toFixed(2);
   return (
     <Tr>
       <Td isNumeric>{props.market_cap_rank}</Td>
-      <Td >
-        <Flex  alignItems="center" columnGap="8px">
-        <Img src={props.image} h="30px" width="30px"  />
-        <Text>
-
-        {props.name}
-        </Text>
+      <Td>
+        <Flex alignItems="center" columnGap="8px">
+          <Img src={props.image} h="30px" width="30px" />
+          <Text>{props.name}</Text>
         </Flex>
-        
       </Td>
-      <Td >${props.current_price}</Td>
-      <Td >{roundedUpPercentage}% </Td>
-      <Td >${props.total_volume}</Td>
-      <Td >${props.fully_diluted_valuation}</Td>
+      <Td>${props.current_price}</Td>
+      <Td>{roundedUpPercentage}% </Td>
+      <Td>${props.total_volume}</Td>
+      <Td>${props.fully_diluted_valuation}</Td>
     </Tr>
   );
 };

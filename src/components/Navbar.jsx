@@ -50,12 +50,7 @@ const Navbar = () => {
         </Box>
         {/*  */}
 
-        <List
-          display="flex"
-          columnGap="45px"
-       
-        
-        >
+        <List display="flex" columnGap="45px">
           <ListItem display="flex" alignItems="center">
             <Link to="/">
               <Heading
@@ -115,7 +110,6 @@ const Navbar = () => {
                   md: "1.3rem",
                   lg: "1.4rem",
                   xl: "1.4rem",
-      
                 }}
                 fontWeight="bold"
               >

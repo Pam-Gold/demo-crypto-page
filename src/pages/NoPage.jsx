@@ -1,3 +1,4 @@
+// Error Element Page
 import { Button, Flex, Heading } from "@chakra-ui/react";
 
 const NoPage = () => {

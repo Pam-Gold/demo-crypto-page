@@ -1,3 +1,4 @@
+// Component handling routing, error elements, lazy loaded pages
 import "./App.css";
 import {
   createBrowserRouter,
@@ -6,30 +7,33 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Layout from "./layout/Layout";
-// import Home from './pages/Home'
-// import ExchangeRatesPage from './pages/ExchangeRatesPage'
-// import InternationalMerchants from './pages/InternationalMerchants'
-// import BitcoinNews from './pages/BitcoinNews'
-// import NftNews from './pages/NftNews'
-// import DefiNews from './pages/DefiNews'
-// import BlockchainNews from './pages/BlockchainNews'
-// import FinanceNews from './pages/FinanceNews'
 import React from "react";
 import NoPage from "./pages/NoPage";
 
+// TODO  To add loader as placeholder for delayed api responses
+
+// Lazy Loaded HomePage
 const Home = React.lazy(() => import("./pages/Home"));
+
+//
+
+// Lazy Loaded Exchange Pages
 const ExchangeRatesPage = React.lazy(() => import("./pages/ExchangeRatesPage"));
 const InternationalMerchants = React.lazy(() =>
   import("./pages/InternationalMerchants")
 );
+//
 
+// Lazy Loaded News Pages
 const BitcoinNews = React.lazy(() => import("./pages/BitcoinNews"));
 const NftNews = React.lazy(() => import("./pages/NftNews"));
 const DefiNews = React.lazy(() => import("./pages/DefiNews"));
 
 const FinanceNews = React.lazy(() => import("./pages/FinanceNews"));
+//
 
 function App() {
+  // Router
   const blaqxRouter = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<Layout />} errorElement={<NoPage />}>
@@ -98,7 +102,7 @@ function App() {
       </Route>
     )
   );
-
+// Router Provider
   return <RouterProvider router={blaqxRouter} />;
 }
 
