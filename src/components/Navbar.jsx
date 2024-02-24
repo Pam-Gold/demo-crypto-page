@@ -2,7 +2,7 @@ import { Box, Flex, Img, List, ListItem, Text } from "@chakra-ui/react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import useToggle from "../hooks/useToggle";
-
+import logo from '../assets/blaqx-logo.png'
 const Navbar = () => {
   const [menu, setMenu] = useState(false);
 
@@ -31,7 +31,7 @@ const Navbar = () => {
           <Img
             h="100%"
             w="100%"
-            src="https://i.pinimg.com/236x/3e/8d/ae/3e8daeae7dfe7b0a4ecedcc54c743c84.jpg"
+            src={logo}
           />
         </Box>
         {/*  */}
