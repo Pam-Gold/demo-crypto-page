@@ -1,4 +1,3 @@
-
 import {
   Box,
   Flex,
@@ -23,10 +22,9 @@ import SimpleTableChart from "../components/crypto-props/SimpleTableChart";
 import NewsBox from "../components/news-props/NewsBox";
 import CrytoTableCharts from "../components/crypto-props/CryptoTableCharts";
 import Footer from "../components/Footer";
+import { Link } from "react-router-dom";
 
 const Home = () => {
-
-
   const [data, setData] = useState([]);
   const [newsData, setNewsData] = useState([]);
   const [cryptoRatesData, setCryptoRatesData] = useState([]);
@@ -75,22 +73,15 @@ const Home = () => {
   console.log(cryptoRatesData);
 
   return (
-    <Flex
-   
-      rowGap="25px"
-      pt="20px"
-      flexDir="column"
-      bg="black"
-      color="#fff"
-    >
+    <Flex rowGap="25px" pt="20px" flexDir="column" bg="black" color="#fff">
       {" "}
       <Flex
         h={{
-          base: "350px",
-          sm: "350px",
-          md: "350px",
-          lg: "200px",
-          xl: "200px",
+          base: "600px",
+          sm: "600px",
+          md: "600px",
+          lg: "300px",
+          xl: "300px",
         }}
         w="100%"
         flexDir={{
@@ -114,7 +105,19 @@ const Home = () => {
           w={{ base: "100%", sm: "100%", md: "100%", lg: "50%", xl: "50%" }}
           border="2px solid lightgrey"
           borderRadius="15px"
-        ></Flex>
+        >
+          <iframe
+            width="100%"
+            height="100%"
+            style={{borderRadius:"10px"}}
+            src="https://www.youtube.com/embed/a-6ivXJ6H90?si=AAy2g5E61aM8C2-k&autoplay=1"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+            
+          ></iframe>
+        </Flex>
         <Flex
           h={{ base: "50%", sm: "50%", md: "50%", lg: "100%", xl: "100%" }}
           w={{ base: "100%", sm: "100%", md: "100%", lg: "50%", xl: "50%" }}
@@ -134,24 +137,33 @@ const Home = () => {
               <Heading fontSize="1.1rem">Trending</Heading>
             </Flex>
             <Text cursor="pointer">
+              <Link to="exchange-rates">
               More <i className="fa-solid fa-chevron-right"></i>
+              </Link>
+              
             </Text>
           </Flex>
-          <Flex h="fit-content" w="100%" flexDir="column">
+          <Flex h="fit-content" w="100%" flexDir="column" rowGap="10px">
             {/*  */}
             {data.map(
-              (coin, indx) => indx < 3 && <SimpleTableChart {...coin} />
+              (coin, indx) => indx < 5 && <SimpleTableChart {...coin} />
             )}
           </Flex>
         </Flex>
       </Flex>
-      <Flex h="fit-content" w="100%" flexDir="column" rowGap="20px"    p={{
-        base: "0px 15px",
-        sm: "0px 15px",
-        md: "0px 20px",
-        lg: "0px 25px",
-        xl: "0px 25px",
-      }}>
+      <Flex
+        h="fit-content"
+        w="100%"
+        flexDir="column"
+        rowGap="20px"
+        p={{
+          base: "0px 15px",
+          sm: "0px 15px",
+          md: "0px 20px",
+          lg: "0px 25px",
+          xl: "0px 25px",
+        }}
+      >
         <Heading fontSize="1.6rem" textDecor="underline">
           Latest News
         </Heading>
@@ -175,9 +187,11 @@ const Home = () => {
       <Flex>
         <TableContainer w="100%">
           <Table variant="simple">
-            <Thead >
-              <Tr >
-                <Th isNumeric color="grey">#</Th>
+            <Thead>
+              <Tr>
+                <Th isNumeric color="grey">
+                  #
+                </Th>
                 <Th color="grey">Coin</Th>
                 <Th color="grey">Price</Th>
                 <Th color="grey">24h</Th>
@@ -194,7 +208,7 @@ const Home = () => {
           </Table>
         </TableContainer>
       </Flex>
-      <Footer/>
+      <Footer />
     </Flex>
   );
 };
